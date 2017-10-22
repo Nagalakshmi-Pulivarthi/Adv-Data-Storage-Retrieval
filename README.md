@@ -70,7 +70,7 @@ date_object
 
 
 
-    datetime.datetime(2017, 10, 21, 7, 37, 22, 365715)
+    datetime.datetime(2017, 10, 21, 22, 44, 45, 118273)
 
 
 
@@ -85,7 +85,7 @@ startdate
 
 
 
-    datetime.datetime(2016, 10, 21, 7, 37, 22, 365715)
+    datetime.datetime(2016, 10, 21, 22, 44, 45, 118273)
 
 
 
@@ -1102,24 +1102,6 @@ qry
 
 
 
-
-```python
-df = pd.DataFrame(qry)
-df.set_index("date",inplace=True)
-```
-
-
-```python
-len(df)
-```
-
-
-
-
-    1675
-
-
-
 ## Precipitation Analysis
 
 
@@ -1130,38 +1112,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.dates import DAILY
 sb.set(style = 'darkgrid')
-my_chart = df.plot(kind="bar",figsize=(10,5),title="percipitation and dates",grid=True)
-my_chart.set_xlabel("dates")
-my_chart.set_ylabel("percp")
-plt.grid(True)
-#dates = np.unique(df.index.values)
-#xy = [datetime.strptime(dates[x],'%Y-%m-%d') for x in np.arange(0,len(dates),20)]
-#t = np.array(xy)
-#loc = plt.xaxis.get_major_locator()
-#plt.xticks(xy)
-#plt.xlim(dates[0],dates[len(dates)-1])
-#x = [ datetime.datetime('2017-01-05'),datetime.datetime('2016-10-05')]
-#plt.xaxis.set_major_locator(matplotlib.dates.WeekdayLocator(byweekday=matplotlib.dates.MO))
-plt.yticks(np.arange(0,df["prcp"].max(),2))
-plt.show()
-#xticks = ['2016-08-01','2016-12-01','2017-3-01']
-# my_chart.xaxis.set_major_locator(dates.MonthLocator())
-# my_chart.xaxis.set_major_formatter(dates.DateFormatter('\n\n\n%b\n%Y'))
-#xticks=[range(len(df.index)),df.index]                
 
-# y_pos = np.arange(len(qry))
-# avgs = [x[1] for x in qry]
-# xticks = [x[0] for x in qry]
- 
-# plt.bar(y_pos, avgs, align='center', alpha=0.5)
-# plt.xticks(y_pos, xticks)
-# plt.ylabel('Mass (g)')
-# plt.title('Average Mammal Mass per Continent')
-# plt.show()
+df = pd.DataFrame(qry)
+df.set_index('date',inplace=True)
+df.sort_index(inplace=True)
+
+df.plot(kind='bar',figsize=(9,5),grid=True,legend=True,use_index=True,title="percipitation and dates")
+
+dates = df.index.values
+xticks = np.arange(0,len(dates),120)
+xticklabels = np.array([dates[x] for x in xticks])
+plt.xticks(xticks,xticklabels, rotation=45)
+plt.yticks(np.arange(0,df["prcp"].max(),2))
+
+plt.xlabel("dates")
+plt.grid(True)
+plt.show()
+
 ```
 
 
-![png](output_12_0.png)
+![png](output_10_0.png)
 
 
 
@@ -1293,7 +1264,7 @@ plt.show()
 ```
 
 
-![png](output_20_0.png)
+![png](output_18_0.png)
 
 
 ## Temperature Analysis
@@ -1351,7 +1322,7 @@ plt.show()
 ```
 
 
-![png](output_24_0.png)
+![png](output_22_0.png)
 
 
 
