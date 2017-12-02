@@ -1,4 +1,4 @@
-
+Deployed in heroku:(https://hawaiitrip.herokuapp.com/)
 Step 1 - Data Engineering:The climate data for Hawaii is provided through two CSV files. Start by using Python and Pandas to inspect the content of these files and clean the data.
 
 Step 2 - Database Engineering:Used SQLAlchemy to model table schemas and create a sqlite database for my tables. One table for measurements and one for stations.
