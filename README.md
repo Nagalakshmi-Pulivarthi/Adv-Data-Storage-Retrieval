@@ -1212,7 +1212,12 @@ df.describe()
 
 
 ## Station Analysis
-
+Designed a query to calculate the total number of stations.
+Designed a query to find the most active stations.
+List the stations and observation counts in descending order
+Designed a query to retrieve the last 12 months of temperature observation data (tobs).
+Filter by the station with the highest number of observations.
+Plot the results as a histogram with bins=12.
 
 ```python
 total_stations=session.query(func.count(Station.name)).scalar()
@@ -1242,12 +1247,7 @@ stationWithHighTobs
 
     'USC00519281'
 
-#TemaratureAnalysis
-Write a function called calc_temps that will accept a start date and end date in the format %Y-%m-%d and return the minimum, average, and maximum temperatures for that range of dates.
-Use the calc_temps function to calculate the min, avg, and max temperatures for your trip using the matching dates from the previous year (i.e. use "2017-01-01" if your trip start date was "2018-01-01")
-Plot the min, avg, and max temperature from your previous query as a bar chart.
-Use the average temperature as the bar height.
-Use the peak-to-peak (tmax-tmin) value as the y error bar (yerr).
+
 
 ```python
 tobs_per_lastmonths =session.query(Measurement.date,Measurement.tobs).filter(Measurement.date.between( startdate,date_object )).all()
@@ -1281,6 +1281,11 @@ plt.show()
 
 ## Temperature Analysis
 
+Wrote a function called calc_temps that will accept a start date and end date in the format %Y-%m-%d and return the minimum, average, and maximum temperatures for that range of dates.
+Used the calc_temps function to calculate the min, avg, and max temperatures for hawaii trip using the matching dates from the previous year (i.e. use "2017-01-01" if your trip start date was "2018-01-01")
+Plot the min, avg, and max temperature from previous query as a bar chart.
+Used the average temperature as the bar height.
+Used the peak-to-peak (tmax-tmin) value as the y error bar (yerr).
 
 ```python
 def calc_temps(start,end):
