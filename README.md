@@ -1,4 +1,12 @@
 
+Step 1 - Data Engineering:The climate data for Hawaii is provided through two CSV files. Start by using Python and Pandas to inspect the content of these files and clean the data.
+
+Step 2 - Database Engineering:Used SQLAlchemy to model table schemas and create a sqlite database for my tables. One table for measurements and one for stations.
+
+Step 3 - Climate Analysis and Exploration:Used Python and SQLAlchemy to do basic climate analysis and data exploration on  new weather station tables. All of the following analysis should be completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
+
+
+
 
 ```python
 from sqlalchemy import create_engine
