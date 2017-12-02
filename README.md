@@ -1242,7 +1242,7 @@ stationWithHighTobs
 
     'USC00519281'
 
-
+#TemaratureAnalysis
 Write a function called calc_temps that will accept a start date and end date in the format %Y-%m-%d and return the minimum, average, and maximum temperatures for that range of dates.
 Use the calc_temps function to calculate the min, avg, and max temperatures for your trip using the matching dates from the previous year (i.e. use "2017-01-01" if your trip start date was "2018-01-01")
 Plot the min, avg, and max temperature from your previous query as a bar chart.
